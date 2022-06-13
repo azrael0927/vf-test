@@ -16,15 +16,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" @click.prevent="signout">登出</a>
-          </li>
+          <router-link class="nav-link" to="/">Home</router-link>
+          <router-link class="nav-link" to="/about">about</router-link>
+          <router-link class="nav-link" to="/dashboard/products">產品管理</router-link>
+          <a class="nav-link" href="#" @click.prevent="signout">登出</a>
         </ul>
       </div>
     </div>

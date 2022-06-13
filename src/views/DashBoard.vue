@@ -1,16 +1,25 @@
 <template>
   <NavBar />
-  <div class="container-fluid">
+  <ToastMessage />
+  <div class="container-fluid mt-3 position-relative">
     <router-view/>
   </div>
 </template>
 
 <script>
 import NavBar from '../components/NavBar.vue';
+import emitter from '../methods/mitt';
+import ToastMessage from '../components/ToastMessage.vue';
 
 export default {
+  provide() {
+    return {
+      emitter,
+    };
+  },
   components: {
     NavBar,
+    ToastMessage,
   },
   created() {
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');

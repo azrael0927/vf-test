@@ -1,4 +1,5 @@
 <template>
+  <LoadingEffect :active="is_loading"/>
   <div class="text-end">
     <button type="button" class="btn btn-primary mt-3 text-end" @click="openProductModal">
       新增產品
@@ -58,6 +59,7 @@ export default {
       products: [],
       pagination: {},
       tempProduct: {},
+      is_loading: false,
     };
   },
   components: {
@@ -67,11 +69,13 @@ export default {
   methods: {
     getProducts(page = 1) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products?page=${page}`;
+      this.is_loading = true;
       this.$http.get(api).then((res) => {
         if (res.data.success) {
           this.products = [...res.data.products];
           this.pagination = { ...res.data.pagination };
         }
+        this.is_loading = false;
       });
     },
     updateProduct(item) {
@@ -81,19 +85,24 @@ export default {
         api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${item.id}`;
         httpMethod = 'put';
       }
+      this.is_loading = true;
       this.$http[httpMethod](api, { data: this.tempProduct }).then((res) => {
-        this.getProducts();
-        this.$refs.productModal.hide();
-        console.log(res);
+        if (res.data.success) {
+          this.getProducts();
+          this.$refs.productModal.hide();
+        }
+        this.is_loading = false;
       });
     },
     delProduct(id) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${id}`;
+      this.is_loading = true;
       this.$http.delete(api).then((res) => {
         if (res.data.success) {
           this.getProducts();
           this.$refs.delModal.hide();
         }
+        this.is_loading = false;
       });
     },
     openProductModal(item) {

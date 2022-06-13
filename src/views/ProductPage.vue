@@ -47,11 +47,15 @@
   :product="tempProduct"
   @del-item="delProduct"
   ref="delModal"/>
+  <PagiNation
+  :page="pagination"
+  @change-page="getProducts" />
 </template>
 
 <script>
 import ProductModal from '../components/ProductModal.vue';
 import DelModal from '../components/DelModal.vue';
+import PagiNation from '../components/PagiNation.vue';
 
 export default {
   data() {
@@ -65,6 +69,7 @@ export default {
   components: {
     ProductModal,
     DelModal,
+    PagiNation,
   },
   methods: {
     getProducts(page = 1) {

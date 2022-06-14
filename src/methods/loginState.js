@@ -7,8 +7,7 @@ export default function () {
       this.state = false;
       this.$router.push('/login');
     } else {
-      this.$router.push('/dashboard/products');
-      this.$httpMessageState(res, '登入');
+      this.$router.push(this.$route.path);
     }
   });
 }

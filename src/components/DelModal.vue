@@ -38,7 +38,7 @@ import Mixins from '@/mixins/ModalMixin';
 
 export default {
   props: {
-    product: {
+    item: {
       type: Object,
       default() {
         return {};
@@ -46,8 +46,8 @@ export default {
     },
   },
   watch: {
-    product() {
-      this.tempProduct = this.product;
+    item() {
+      this.tempProduct = this.item;
     },
   },
   data() {

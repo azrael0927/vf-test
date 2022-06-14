@@ -44,7 +44,7 @@
   @update-product="updateProduct"
   ref="productModal" />
   <DelModal
-  :product="tempProduct"
+  :item="tempProduct"
   @del-item="delProduct"
   ref="delModal"/>
   <PagiNation
@@ -115,13 +115,12 @@ export default {
         this.is_loading = false;
         if (res.data.success) {
           this.getProducts();
-          this.$refs.delModal.hide();
           this.$httpMessageState(res, '刪除');
         } else {
-          this.$refs.delModal.hide();
           this.$httpMessageState(res, '刪除');
         }
       });
+      this.$refs.delModal.hide();
     },
     openProductModal(item) {
       if (item.id) this.tempProduct = { ...item };
@@ -138,7 +137,7 @@ export default {
     if (window.history.state.back === '/login') {
       this.$httpMessageState(true, '登入');
     }
-    console.log(window.history);
+    console.log(window.history.state.back);
   },
 };
 </script>

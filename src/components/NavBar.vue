@@ -19,6 +19,8 @@
           <router-link class="nav-link" to="/">Home</router-link>
           <router-link class="nav-link" to="/about">about</router-link>
           <router-link class="nav-link" to="/dashboard/products">產品管理</router-link>
+          <router-link class="nav-link" to="/dashboard/coupons">優惠券</router-link>
+          <router-link class="nav-link" to="/dashboard/orders">訂單管理</router-link>
           <router-link class="nav-link" to="/login" v-if="!state">登入</router-link>
           <a class="nav-link" href="#" @click.prevent="signout" v-else>登出</a>
         </ul>

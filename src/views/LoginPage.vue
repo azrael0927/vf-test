@@ -63,5 +63,8 @@ export default {
       });
     },
   },
+  created() {
+    this.$check();
+  },
 };
 </script>

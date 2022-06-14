@@ -19,7 +19,8 @@
           <router-link class="nav-link" to="/">Home</router-link>
           <router-link class="nav-link" to="/about">about</router-link>
           <router-link class="nav-link" to="/dashboard/products">產品管理</router-link>
-          <a class="nav-link" href="#" @click.prevent="signout">登出</a>
+          <router-link class="nav-link" to="/login" v-if="!state">登入</router-link>
+          <a class="nav-link" href="#" @click.prevent="signout" v-else>登出</a>
         </ul>
       </div>
     </div>
@@ -28,8 +29,18 @@
 
 <script>
 export default {
+  props: {
+    state: {
+      type: Boolean,
+      default() {
+        return true;
+      },
+    },
+  },
   data() {
-    return { is_loading: false };
+    return {
+      is_loading: false,
+    };
   },
   methods: {
     signout() {

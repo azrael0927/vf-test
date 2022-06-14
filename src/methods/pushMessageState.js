@@ -1,7 +1,7 @@
 import emitter from './mitt';
 
 export default function (res, title = '更新') {
-  if (res.data.success) {
+  if (res === true || res.data.success) {
     emitter.emit('push-message', {
       style: 'success',
       title: `${title}成功`,

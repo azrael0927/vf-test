@@ -135,6 +135,10 @@ export default {
   },
   created() {
     this.getProducts();
+    if (window.history.state.back === '/login') {
+      this.$httpMessageState(true, '登入');
+    }
+    console.log(window.history);
   },
 };
 </script>

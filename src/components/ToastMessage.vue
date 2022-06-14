@@ -19,7 +19,6 @@ export default {
   inject: ['emitter'],
   mounted() {
     this.emitter.on('push-message', (message) => {
-      console.log(message);
       const { style = 'success', title, content } = message;
       this.message.push({ style, title, content });
     });

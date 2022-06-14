@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue';
 import LoginPage from '../views/LoginPage.vue';
 import DashBoard from '../views/DashBoard.vue';
 import ProductPage from '../views/ProductPage.vue';
+import OrderPage from '../views/OrderPage.vue';
+import CouponPage from '../views/CouponPage.vue';
 
 const routes = [
   {
@@ -31,6 +33,14 @@ const routes = [
       {
         path: 'products',
         component: ProductPage,
+      },
+      {
+        path: 'coupons',
+        component: CouponPage,
+      },
+      {
+        path: 'orders',
+        component: OrderPage,
       },
     ],
   },

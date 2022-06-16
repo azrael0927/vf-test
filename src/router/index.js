@@ -5,6 +5,7 @@ import DashBoard from '../views/DashBoard.vue';
 import ProductPage from '../views/ProductPage.vue';
 import OrderPage from '../views/OrderPage.vue';
 import CouponPage from '../views/CouponPage.vue';
+import UserBoard from '../views/UserBoard.vue';
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
         component: OrderPage,
       },
     ],
+  },
+  {
+    path: '/userboard',
+    name: 'UserBoard',
+    component: UserBoard,
   },
 ];
 
